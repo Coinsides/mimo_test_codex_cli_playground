@@ -3,7 +3,7 @@
   "$id": "https://example.local/schemas/task_result_v0_1.schema.json",
   "title": "TaskResult v0.1",
   "type": "object",
-  "required": ["task_id", "status", "summary", "artifacts"],
+  "required": ["task_id", "status", "summary", "artifacts", "tests", "errors"],
   "additionalProperties": false,
   "properties": {
     "task_id": {"type": "string"},
@@ -25,7 +25,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["command", "passed"],
+        "required": ["command", "passed", "output"],
         "additionalProperties": false,
         "properties": {
           "command": {"type": "string"},

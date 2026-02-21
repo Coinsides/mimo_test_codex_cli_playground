@@ -1,0 +1,42 @@
+{
+  "task_id": "TASK-20260221-001",
+  "title": "Add PLAYBOOK.md (Codex CLI Thread Playbook condensed for this repo)",
+  "context": "This repo is a long-term Codex CLI playground. We want a single, concise document that explains how we run tasks here (TaskSpec → codex exec → tests/validation → commit) and how to scale to threads/worktrees later.",
+  "inputs": [
+    "docs/contracts/task_spec_v0_1.schema.json",
+    "docs/contracts/task_result_v0_1.schema.json",
+    "tasks/README.md",
+    "tools/validate_task_result.py",
+    "README.md"
+  ],
+  "instructions": [
+    "Create a new file PLAYBOOK.md at the repo root.",
+    "PLAYBOOK.md must be written in Chinese (you may include short English command snippets).",
+    "Content requirements (keep it practical, not essay):",
+    "- Purpose & scope: this repo is a long-term playground.",
+    "- Roles: what Zero can do vs what the human must do (clearly labeled).",
+    "- Standard workflow (the minimal loop): write TaskSpec → run codex exec → run tests → validate TaskResult → commit/push.",
+    "- Provide PowerShell command templates for: creating venv + installing requirements; running pytest; validating a TaskResult JSON.",
+    "- Provide a codex exec prompt template that references a TaskSpec file and requires ONLY TaskResult JSON output.",
+    "- Brief section on scaling: /new /fork /resume and when to use git worktree.",
+    "- Keep it <= ~150 lines; prefer bullet lists.",
+    "If needed to satisfy Codex --output-schema constraints, you may update docs/contracts/task_result_v0_1.schema.json required fields (no other behavioral changes).",
+    "Do NOT change any other files."
+  ],
+  "commands": [
+    "py -m venv .venv",
+    ".\\.venv\\Scripts\\python -m pip install -U pip",
+    ".\\.venv\\Scripts\\pip install -r requirements.txt",
+    ".\\.venv\\Scripts\\pytest -q",
+    ".\\.venv\\Scripts\\python tools\\validate_task_result.py <task_result.json> docs\\contracts\\task_result_v0_1.schema.json"
+  ],
+  "acceptance": [
+    "A new file PLAYBOOK.md exists at repo root.",
+    "PLAYBOOK.md is Chinese, concise, and includes the required command/prompt templates.",
+    "No other files are modified."
+  ],
+  "output": {
+    "task_result_path": "logs/task_results/TASK-20260221-001.task_result.json",
+    "task_result_schema": "docs/contracts/task_result_v0_1.schema.json"
+  }
+}
