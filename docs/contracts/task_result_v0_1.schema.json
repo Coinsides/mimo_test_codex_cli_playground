@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/task_result_v0_1.schema.json",
+  "title": "TaskResult v0.1",
+  "type": "object",
+  "required": ["task_id", "status", "summary", "artifacts"],
+  "additionalProperties": false,
+  "properties": {
+    "task_id": {"type": "string"},
+    "status": {"type": "string", "enum": ["success", "failed"]},
+    "summary": {"type": "string"},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {"type": "string"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "passed"],
+        "additionalProperties": false,
+        "properties": {
+          "command": {"type": "string"},
+          "passed": {"type": "boolean"},
+          "output": {"type": "string"}
+        }
+      },
+      "default": []
+    },
+    "errors": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/task_spec_v0_1.schema.json",
+  "title": "TaskSpec v0.1",
+  "type": "object",
+  "required": ["task_id", "title", "instructions", "acceptance"],
+  "additionalProperties": false,
+  "properties": {
+    "task_id": {"type": "string"},
+    "title": {"type": "string"},
+    "context": {"type": "string"},
+    "inputs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "instructions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "commands": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_result_path": {"type": "string"},
+        "task_result_schema": {"type": "string"}
+      }
+    }
+  }
+}
