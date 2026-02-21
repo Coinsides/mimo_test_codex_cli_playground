@@ -28,3 +28,8 @@ codex exec --full-auto --sandbox workspace-write `
 ## 4) 小提示
 - **TaskSpec 写得越具体，越容易验收。**
 - **TaskResult 只输出 JSON**：避免额外文本污染自动解析。
+
+## 在 worktree 里跑 codex exec（建议）
+- 每个 worktree 当成独立工作区：先 `cd` 到 worktree 目录再运行 `codex exec`。
+- 输出文件路径建议写到该 worktree 内的 `logs/`，避免互相覆盖。
+- 一个 worktree 对应一个分支（例如 thread/b），任务完成就推送并开 PR。
