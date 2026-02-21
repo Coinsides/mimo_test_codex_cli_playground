@@ -66,3 +66,10 @@ Read tasks/<TASK_FILE>.task_spec.json, implement exactly what it asks (no extra 
 - 需要并行处理多个独立任务，且每个任务要有隔离代码目录时。
 - 需要长时间保留多个分支工作区，减少频繁切分支带来的干扰时。
 - 轻量任务或一次性小改动，优先单工作区即可。
+
+## Worktree 并行最短流程（A/B 并行）
+- 目的：同时推进两个任务，互不踩文件/互不污染工作区。
+- 创建：在主 repo 用 `git worktree add ... -b thread/a origin/main`。
+- 执行：进入各自 worktree 目录分别改动/跑 codex。
+- 提交：每个 worktree 各自 `git add/commit/push` 到自己的分支（thread/a、thread/b）。
+- 合并：在 GitHub 开 PR，分别合并回 main；避免把两个任务塞进一个 PR。
