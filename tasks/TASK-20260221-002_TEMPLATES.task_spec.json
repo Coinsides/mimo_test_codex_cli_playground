@@ -1,0 +1,36 @@
+{
+  "task_id": "TASK-20260221-002",
+  "title": "Add TaskSpec/TaskResult templates + examples",
+  "context": "This repo is a long-term Codex CLI playground. After adding PLAYBOOK.md, we now want reusable templates and one concrete example so the workflow is copy/pasteable.",
+  "inputs": [
+    "PLAYBOOK.md",
+    "docs/contracts/task_spec_v0_1.schema.json",
+    "docs/contracts/task_result_v0_1.schema.json",
+    "tools/validate_task_result.py",
+    "tasks/README.md"
+  ],
+  "instructions": [
+    "Create tasks/TEMPLATE.task_spec.json as a minimal, well-commented example TaskSpec that conforms to docs/contracts/task_spec_v0_1.schema.json.",
+    "Create docs/examples/TEMPLATE.task_result.json as a valid example TaskResult that conforms to docs/contracts/task_result_v0_1.schema.json.",
+    "Create docs/examples/README.md explaining (in Chinese) how to use these templates with codex exec and how to validate TaskResult using tools/validate_task_result.py.",
+    "Update PLAYBOOK.md with links to the new templates/examples section (keep it short).",
+    "Do not change schemas in docs/contracts/.",
+    "Do not modify any other files."
+  ],
+  "commands": [
+    "py -m venv .venv",
+    ".\\.venv\\Scripts\\pip install -r requirements.txt",
+    ".\\.venv\\Scripts\\python tools\\validate_task_result.py docs\\examples\\TEMPLATE.task_result.json docs\\contracts\\task_result_v0_1.schema.json"
+  ],
+  "acceptance": [
+    "tasks/TEMPLATE.task_spec.json exists and is a valid TaskSpec.",
+    "docs/examples/TEMPLATE.task_result.json validates with tools/validate_task_result.py.",
+    "docs/examples/README.md exists and gives a practical step-by-step.",
+    "PLAYBOOK.md mentions where templates/examples live.",
+    "No files under docs/contracts/ were changed."
+  ],
+  "output": {
+    "task_result_path": "logs/task_results/TASK-20260221-002.task_result.json",
+    "task_result_schema": "docs/contracts/task_result_v0_1.schema.json"
+  }
+}

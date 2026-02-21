@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-YYYYMMDD-XXX",
+  "title": "（模板）用一句话描述你要做的事",
+  "context": "（可选）补充背景：为什么要做、相关约束、涉及哪些目录/模块。",
+  "inputs": [
+    "（可选）列出你希望 Codex 重点阅读/参考的文件路径"
+  ],
+  "instructions": [
+    "1) 读取本 TaskSpec（本文件）。",
+    "2) 严格按本任务要求改动；不要做额外范围扩展。",
+    "3) 如需运行命令，请按 commands 字段给出的命令执行。",
+    "4) 完成后输出 ONLY TaskResult JSON，并满足 docs/contracts/task_result_v0_1.schema.json。"
+  ],
+  "commands": [
+    "（可选）例如：.\\.venv\\Scripts\\pytest -q"
+  ],
+  "acceptance": [
+    "列出可验证的验收标准（文件存在、测试通过、输出符合 schema 等）"
+  ],
+  "output": {
+    "task_result_path": "logs/task_results/TASK-YYYYMMDD-XXX.task_result.json",
+    "task_result_schema": "docs/contracts/task_result_v0_1.schema.json"
+  }
+}

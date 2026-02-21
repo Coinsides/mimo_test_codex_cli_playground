@@ -1,0 +1,32 @@
+{
+  "task_id": "TASK-20260221-003",
+  "title": "Add GitHub Actions CI to run pytest",
+  "context": "This playground should have minimal CI so every push runs tests. Keep it simple and Windows-friendly.",
+  "inputs": [
+    "requirements.txt",
+    "tests/test_sanity.py",
+    "README.md",
+    "PLAYBOOK.md"
+  ],
+  "instructions": [
+    "Add a GitHub Actions workflow at .github/workflows/ci.yml.",
+    "Workflow requirements:",
+    "- Trigger on push and pull_request.",
+    "- Use ubuntu-latest.",
+    "- Setup Python 3.x.",
+    "- Install dependencies: pip install -r requirements.txt.",
+    "- Run: pytest -q.",
+    "Update README.md to include a short CI badge/link section (keep it minimal).",
+    "Do not change any other files."
+  ],
+  "commands": [],
+  "acceptance": [
+    ".github/workflows/ci.yml exists and runs pytest.",
+    "README.md mentions CI status (badge or link).",
+    "No other files changed."
+  ],
+  "output": {
+    "task_result_path": "logs/task_results/TASK-20260221-003.task_result.json",
+    "task_result_schema": "docs/contracts/task_result_v0_1.schema.json"
+  }
+}

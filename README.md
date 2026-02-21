@@ -1,5 +1,7 @@
 # mimo_test_codex_cli_playground
 
+[![CI](https://github.com/Coinsides/mimo_test_codex_cli_playground/actions/workflows/ci.yml/badge.svg)](https://github.com/Coinsides/mimo_test_codex_cli_playground/actions/workflows/ci.yml)
+
 A minimal sandbox repo to run the **Codex CLI Thread Playbook** end-to-end:
 
 - TaskSpec (input) → `codex exec` (work) → tests/validation → TaskResult (output)

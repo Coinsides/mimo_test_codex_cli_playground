@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-YYYYMMDD-XXX",
+  "status": "success",
+  "summary": "（模板）简要说明完成了什么，以及关键限制是否遵守。",
+  "artifacts": [
+    {
+      "path": "path/to/file.ext",
+      "description": "（模板）说明这个产物是什么/用于什么。"
+    }
+  ],
+  "tests": [
+    {
+      "command": "pytest -q",
+      "passed": true,
+      "output": "(example) 1 passed"
+    }
+  ],
+  "errors": []
+}

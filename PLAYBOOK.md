@@ -53,7 +53,12 @@ Read tasks/<TASK_FILE>.task_spec.json, implement exactly what it asks (no extra 
 - 明确“只做任务要求，不做额外改动”。
 - 明确“输出仅为 TaskResult JSON（无额外文本）”。
 
-## 6) 扩展到线程与 worktree
+## 6) 模板与示例（推荐从这里开始）
+- TaskSpec 模板：`tasks/TEMPLATE.task_spec.json`
+- TaskResult 示例：`docs/examples/TEMPLATE.task_result.json`
+- 使用说明：`docs/examples/README.md`
+
+## 7) 扩展到线程与 worktree
 - `/new`：开启新会话处理新主题，避免上下文污染。
 - `/fork`：基于当前上下文分叉方案，适合并行试验同一任务不同实现。
 - `/resume`：恢复历史会话，继续未完成任务。
